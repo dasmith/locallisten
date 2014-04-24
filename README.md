@@ -1,6 +1,6 @@
 # Local Listen
 
-This simple script finds the a few popular songs (on [Google Play (All Access)](http://music.google.com)) of the bands that are performing nearby within the next week (found using [JamBase](http://jambase.com))---giving you time to decide if you want to go to the show and listen to them perform.
+A script to find a few popular songs (on [Google Play (All Access)](http://music.google.com)) of the bands that are performing nearby within the next week (found using [JamBase](http://jambase.com))---giving you time to decide if you want to go to the show.
 
 To use this script you need to have:
   
@@ -13,5 +13,6 @@ This script depends on the following Python libraries:
     gmusicapi requests gitpass
 
 Dustin Smith  
-2014/4/23
 dustin@media.mit.edu
+
+2014/4/23
