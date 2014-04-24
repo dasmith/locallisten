@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """ 
 LocalListen - https://github.com/dasmith/locallisten
 
@@ -46,7 +47,7 @@ def get_and_clear_playlist(name_of_playlist):
     return gapi.create_playlist(name_of_playlist)
 
 
-jambase_api_key = gitpass.gitpass("Enter your Jambase API key")
+jambase_api_key = gitpass.gitpass("Enter your Jambase API key: ")
 
 gapi = Mobileclient()
 gapi.login(gitpass.gitpass("Enter your Google Play email: "),
