@@ -25,7 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 #--------------------------------------------------------------------
-# set these parameters
+# script parameters
 zipcode = "02139"
 radius_in_miles = "5"
 name_of_playlist = "! Bands playing in Cambridge, MA"
@@ -35,8 +35,7 @@ import gitpass
 from gmusicapi import Mobileclient
 
 def get_and_clear_playlist(name_of_playlist):
-    """ Returns the playlist after deleting the songs"""
-    playlist = None
+    """ Returns the playlist after deleting its songs"""
     for play in gapi.get_all_user_playlist_contents():
         if play['name'] == name_of_playlist and not play['deleted']:
             pid= play['id']
@@ -47,12 +46,12 @@ def get_and_clear_playlist(name_of_playlist):
     return gapi.create_playlist(name_of_playlist)
 
 
-jambase_api_key = gitpass.gitpass("Enter your Jambase API key: ")
+jambase_api_key = gitpass.gitpass("Enter your Jambase API key", "japi")
 
 gapi = Mobileclient()
-gapi.login(gitpass.gitpass("Enter your Google Play email: "),
-           gitpass.gitpass("Enter your Google Play password: "))
-    
+gapi.login(gitpass.gitpass("Enter your Google Play email", "gemail"),
+           gitpass.gitpass("Enter your Google Play password", "gpass"))
+
 playlist_id = get_and_clear_playlist(name_of_playlist)
 
 data = {'zipCode': zipcode,
@@ -83,7 +82,7 @@ for event in data['Events']:
                 for top_track in song_data.get('topTracks', []):
                     #if top_track['genre'] in banned_genres:
                     #   continue 
-                    print " + %s [%s]" (top_track['title'], top_track['genre'])
+                    print " + %s [%s]" % (top_track['title'], top_track['genre'])
                     song_id = top_track.get('id') or top_track.get('nid')
                     gapi.add_songs_to_playlist(playlist_id, song_id)
             break

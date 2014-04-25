@@ -1,6 +1,9 @@
-# Local Listen
+# Local Listen 
 
-A script to find a few popular songs (on [Google Play (All Access)](http://music.google.com)) of the bands that are performing nearby within the next week (found using [JamBase](http://jambase.com)).  It adds the songs to a playlist on Google Play so you can listen and discover shows you wouldn't want to miss.
+A script to find a few popular songs (on [Google Play (All Access)](http://music.google.com)) of
+the bands that are performing nearby within the next week (found using
+                [JamBase](http://jambase.com)).  It adds the songs to a playlist on Google Play so
+you can listen and discover bands before you miss a chance to see them perform live.
 
 To use this script you need to have:
   
@@ -10,9 +13,36 @@ To use this script you need to have:
 
 This script depends on the following Python libraries:
   
-    gmusicapi requests gitpass
+  - [gmusicapi](simon-weber/Unofficial-Google-Music-APIr)
+  - [requests](http://docs.python-requests.org/en/latest/)
+  - [gitpass](dasmith/gitpass)
 
-To use it, install these dependencies.  Then edit the parameters at the top of the script (e.g. `zipcode`, `name_of_playlist`).  Then run the script (`python locallisten.py`). 
+## Running the script
+
+First, install the dependencies, e.g.
+
+    sudo pip install gmusicapi requests gitpass
+
+
+Second, request an API key from http://developer.jambase.com/
+
+Third, open the file `locallisten.py` in your text editor and edit the parameters at the top of the
+script:
+
+```
+python
+#---------------------------------------
+# script parameters
+zipcode = "02139"
+radius_in_miles = "5"
+name_of_playlist = "! Bands playing in Cambridge, MA"
+#---------------------------------------
+```
+
+Now, run the script:
+
+    python locallisten.py
+
 
 The first time you run the script it will ask you to type in your Google Play password and your JamBase API key.  `gitpass` saves these as hidden files so you don't have to type them in again.
 
