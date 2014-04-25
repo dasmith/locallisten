@@ -13,9 +13,9 @@ To use this script you need to have:
 
 This script depends on the following Python libraries:
   
-  - [gmusicapi](simon-weber/Unofficial-Google-Music-APIr)
+  - simon-weber/Unofficial-Google-Music-API
   - [requests](http://docs.python-requests.org/en/latest/)
-  - [gitpass](dasmith/gitpass)
+  - dasmith/gitpass
 
 ## Running the script
 
@@ -29,8 +29,7 @@ Second, request an API key from http://developer.jambase.com/
 Third, open the file `locallisten.py` in your text editor and edit the parameters at the top of the
 script:
 
-```
-python
+``` python
 #---------------------------------------
 # script parameters
 zipcode = "02139"
