@@ -52,3 +52,9 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+.__enter_your_jambase_api_key:
+.__enter_your_google_play_email:
+.__enter_your_google_play_password:
+.__japi
+.__gemail
+.__gpass
