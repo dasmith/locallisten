@@ -82,7 +82,7 @@ for event in data['Events']:
                 for top_track in song_data.get('topTracks', []):
                     #if top_track['genre'] in banned_genres:
                     #   continue 
-                    print " + %s [%s]" % (top_track['title'], top_track['genre'])
+                    print " + %s [%s]" % (top_track['title'], top_track.get('genre','N/A'))
                     song_id = top_track.get('id') or top_track.get('nid')
                     gapi.add_songs_to_playlist(playlist_id, song_id)
             break
