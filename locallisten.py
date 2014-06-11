@@ -80,9 +80,9 @@ for event in data['Events']:
                 # strange matches.
                 song_data = gapi.get_artist_info(google_artist_id, include_albums=False, max_top_tracks=5, max_rel_artist=0)
                 for top_track in song_data.get('topTracks', []):
-                    #if top_track['genre'] in banned_genres:
+                    #if top_track.get('genre', 'uknown') in banned_genres:
                     #   continue 
-                    print " + %s [%s]" % (top_track['title'], top_track['genre'])
+                    print " + %s [%s]" % (top_track['title'], top_track.get('genre', 'uknown'))
                     song_id = top_track.get('id') or top_track.get('nid')
                     gapi.add_songs_to_playlist(playlist_id, song_id)
             break
