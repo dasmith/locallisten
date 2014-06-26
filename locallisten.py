@@ -30,6 +30,8 @@ zipcode = "02139"
 radius_in_miles = "5"
 name_of_playlist = "! Bands playing in Cambridge, MA"
 #--------------------------------------------------------------------
+import sys
+sys.path.insert(0, 'lib')
 import requests
 import gitpass
 from gmusicapi import Mobileclient
