@@ -61,6 +61,7 @@ data = {'zipCode': zipcode,
 
 response = requests.get("http://api.jambase.com/events", params=data)
 data = response.json()
+seen = set()
 
 for event in data['Events']:
     for artist in event['Artists']:
@@ -74,6 +75,9 @@ for event in data['Events']:
         for google_artist_data in result.get('artist_hits', []):
             google_artist = google_artist_data['artist']
             google_artist_id = google_artist['artistId']
+            if google_artist_id in seen:
+                continue
+            seen.add(google_artist_id)
             print "----> %s (%0.2f)" % (google_artist['name'], google_artist_data['score'])
             if google_artist_data['score'] > 200:
                 # TODO: confirm high string similarity, as sometimes Google gives high scores to 
